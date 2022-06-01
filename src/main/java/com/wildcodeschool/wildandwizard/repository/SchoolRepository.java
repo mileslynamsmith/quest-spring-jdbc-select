@@ -17,7 +17,6 @@ public class SchoolRepository {
     private final static String DB_PASSWORD = "Horcrux4life!";
 
     public List<School> findAll() {
-
         // TODO : find all schools
         Connection connection = null;
         PreparedStatement statement = null;
@@ -27,7 +26,7 @@ public class SchoolRepository {
                     DB_URL, DB_USER, DB_PASSWORD
             );
             statement = connection.prepareStatement(
-                        "SELECT name FROM school;"
+                        "SELECT * FROM school;"
             );
             resultSet = statement.executeQuery();
     
@@ -106,6 +105,7 @@ public class SchoolRepository {
                 Long capacity = resultSet.getLong("capacity");
                 schools.add(new School(id, name, capacity, country));
             }
+            return schools;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
