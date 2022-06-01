@@ -1,6 +1,6 @@
 package com.wildcodeschool.wildandwizard.entity;
 
-public class School {
+public class School{
 
     private Long id;
     private String name;
